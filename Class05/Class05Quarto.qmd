@@ -1,0 +1,151 @@
+---
+title: "Class 05: Data Visualization with GGPLOT"
+author: "Dahlia Loomis"
+date: 04/19/2023
+format: pdf
+---
+
+# Base R Plotting
+
+We are going to start by generating the plot from Class 04. This code plots the car `dataset.`
+
+```{r}
+plot(cars)
+```
+
+# Ggplot2
+
+First, we need to install the package. We do this by using the `install.packages` command.
+
+```{r}
+#install.packages('ggplot2')
+```
+
+After that, we need to load the package.
+
+```{r}
+library(ggplot2)
+```
+
+Next, we will generate a plot with the cars dataframe by using ggplot2. The following code demonstrates the components and purpose of the different functions that allow us to build up to the actual plot.
+
+```{r}
+ggplot(data=cars)
+ggplot(data=cars) + 
+  aes(x=speed, y=dist)
+ggplot(data=cars) + 
+  aes(x=speed, y=dist) +
+  geom_point()
+ggplot(data=cars) + 
+  aes(x=speed, y=dist) +
+  geom_point() +
+  geom_smooth(method = 'lm') +
+  labs(title= 'Distance vs. Speed',
+       subtitle = 'A nice subtitle!', 
+       caption= 'BIMM 143', 
+       x = 'Speed (MPH)', 
+       y = 'Distance (feet)') +
+  theme_bw()
+
+```
+
+# Plotting Gene Expression Data
+
+Loading data for gene expression
+
+```{r}
+#load data
+url <- "https://bioboot.github.io/bimm143_S20/class-material/up_down_expression.txt"
+genes <- read.delim(url)
+head(genes)
+```
+
+Initial ggplot
+
+```{r}
+ggplot(data = genes) +
+  aes(x = Condition1, y = Condition2) +
+  geom_point()
+  
+```
+
+Add color to the plot
+
+```{r}
+p1 <- ggplot(data = genes) +
+  aes(x=Condition1, y=Condition2, col=State) +
+  geom_point()
+```
+
+Let's change the color scheme
+
+```{r}
+p2 = p1 + 
+  scale_color_manual(values = c("blue", "gray", "red")) 
+```
+
+Let's add some labels.
+
+```{r}
+p2 + labs(title = 'Differential Gene Expression', x = 'Control', y = 'Drug Treatment', caption = 'BIMM 143 - Class 05')
+```
+
+# Questions
+
+**Q1.**
+
+For which phases is data visualization important in our scientific workflows?
+
+**For explanatory data analysis (EDA), communication of results, and detection of outliers.**
+
+True or False? The ggplot2 package comes already installed with R?Plotting Gene Expression Data
+
+**FALSE**
+
+**Q2.**
+
+Which plot types are typically NOT used to compare distributions of numeric variables?
+
+**Network graphs are typically not used to compare distributions of numeric variables.**
+
+Which statement about data visualization with ggplot2 is incorrect?
+
+**Ggplot2 is the only way to create plots in R**
+
+**Q3.**
+
+Which geometric layer should be used to create scatter plots in ggplot2?
+
+**geom_point**
+
+**Q4.**
+
+```{r}
+nrow(genes)
+ncol(genes)
+colnames(genes)
+
+table(genes[,'State'])
+```
+
+Use the `nrow()` function to find out how many genes are in this dataset. What is your answer?
+
+**5196**
+
+Use the `colnames()` function and the `ncol()` function on the `genes` data frame to find out what the column names are (we will need these later) and how many columns there are. How many columns did you find?
+
+**4**
+
+Use the `table()` function on the `State` column of this data.frame to find out how many 'up' regulated genes there are. What is your answer?
+
+**There are 127 'up' regulated genes**
+
+Using your values above and 2 significant figures. What fraction of total genes is up-regulated in this dataset?
+
+```{r}
+table(genes[,'State'])/ nrow(genes)*100
+
+
+```
+
+**2.44**

@@ -1,0 +1,9 @@
+---
+title: "Class 05: Data Visualization With ggplot"
+author: "Dahlia Loomis"
+date: 04/19/2023
+format: html
+editor: visual
+---
+
+some example text

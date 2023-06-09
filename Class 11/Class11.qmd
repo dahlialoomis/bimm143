@@ -1,0 +1,19 @@
+---
+title: "Class 11: Genomics"
+author: "Dahlia Loomis"
+date: 05/10/23
+format: pdf
+---
+
+Q5. Proportion of MXL With G\|G Genotype
+
+```{r}
+mxl <- read.csv('373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378 (1).csv')
+head(mxl)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.) / nrow(mxl)
+```
+
+Proportion was 0.140625

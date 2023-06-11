@@ -10,4 +10,4 @@ Class 10: [Halloween Candy Mini Project](https://github.com/dahlialoomis/bimm143
 
 Class 13: [RNASeq Analysis Mini Project](https://github.com/dahlialoomis/bimm143/blob/main/Class%2013%20Mini%20Project/Class13.md#class-13-rnaseq-analysis-mini-project)
 
-Class 17:[Vaccination Rate Mini Project](https://github.com/dahlialoomis/bimm143/blob/main/Class17/Class17.md#class-17-vaccination-rate-mini-project)
+Class 17: [Vaccination Rate Mini Project](https://github.com/dahlialoomis/bimm143/blob/main/Class17/Class17.md#class-17-vaccination-rate-mini-project)
